@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="d-flex flex-column min-vh-100 align-items-center">
+        <div class="row">
+            <h1>Employee</h1>
+            <a routerLink="/employee/create" class="btn btn-success"> Create </a>
+        </div>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of list">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.designation}}</td>
+                        <td>
+                            <a routerLink="/employee/edit/{{item.id}}" class="btn btn-sm btn-info" >Edit</a>
+                            <button type="button" (click)="delete(item.id)"  class="btn btn-sm btn-danger" >Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

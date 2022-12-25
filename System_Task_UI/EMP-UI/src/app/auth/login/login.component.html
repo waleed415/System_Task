@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+        <div class="col-6">
+            <h1>Login</h1>
+            <span class="text-danger">
+                {{errorMessage}}
+            </span>
+            <form [formGroup]="loginFrm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="username" class="form-label">User Name</label>
+                    <input type="text" class="form-control" id="username" formControlName="userName">
+                    <div *ngIf="loginFrm.controls['userName'].invalid && (loginFrm.controls['userName'].dirty || loginFrm.controls['userName'].touched)"
+                        class="row">
+                        <span *ngIf="loginFrm.controls['userName'].errors?.['required']" class="text-danger">
+                            This field is required!
+                        </span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    <div *ngIf="loginFrm.controls['password'].invalid && (loginFrm.controls['password'].dirty || loginFrm.controls['password'].touched)"
+                        class="row">
+                        <span *ngIf="loginFrm.controls['password'].errors?.['required']" class="text-danger">
+                            This field is required!
+                        </span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
